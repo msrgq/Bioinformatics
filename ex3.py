@@ -1,21 +1,24 @@
-#use AI to adapt your current algorithm in order to make an app that takes a FASTA file and reads the seq content from it and displays the relative percentages for the symbols present in the alphabet of the sequence
-#note that FASTA reoresents a file format that contains DNA, ARN or protein sequences
-#thus,it contains information for your input.
+#find in sequence S only the dinucleodites and trinucleodites that exist, without the use of the brute force engine. 
+# In order to achive the result one must verify each combination starting from the beggining of sequence S 
+# Example: ABAA we have AB, BA, AA, ABA
 
-filename = "C:/Users/msuru/Desktop/BIOINF/lab1/sequence.fasta"  
+def find_existing_kmers(S):
+    S = S.upper().strip()
 
-with open(filename, "r") as f:
-    lines = f.readlines()
+    dinucs = set()
+    trinucs = set()
 
-S = "".join([line.strip() for line in lines if not line.startswith(">")]).upper()
-n = len(S)
+    for i in range(len(S)):
+        if i + 1 < len(S):
+            dinucs.add(S[i:i+2])
+        if i + 2 < len(S):
+            trinucs.add(S[i:i+3])
 
-alphabet = set(S)
+    return sorted(dinucs), sorted(trinucs)
 
-print("Sequence length:", n)
-print("Alphabet found in sequence with percentages:")
+S = "ABAA"
+dinucs, trinucs = find_existing_kmers(S)
 
-for letter in sorted(alphabet):
-    count = S.count(letter)
-    percentage = round((count / n) * 100)
-    print(letter, ":", percentage, "%")
+print(f"Sequence: {S}")
+print(f"Existing dinucleotides (2-mers): {dinucs}")
+print(f"Existing trinucleotides (3-mers): {trinucs}")
