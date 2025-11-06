@@ -1,0 +1,11 @@
+Filename	Total_length_bp	Num_fragments
+influenza1.fasta	982	1
+influenza10.fasta	982	1
+influenza2.fasta	2280	2
+influenza3.fasta	1497	1
+influenza4.fasta	1497	1
+influenza5.fasta	982	1
+influenza6.fasta	2151	4
+influenza7.fasta	2280	2
+influenza8.fasta	1497	1
+influenza9.fasta	2277	2
