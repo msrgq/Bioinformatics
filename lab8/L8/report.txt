@@ -1,0 +1,42 @@
+Three bacterial genomes were downloaded from the NCBI nucleotide database.
+To keep the analysis general, they are referred to simply as:
+Genome 1
+Genome 2
+Genome 3
+A Python program with a graphical user interface (Tkinter) was developed.
+The tool performs the following steps:
+Loads a genome sequence from a FASTA file.
+Scans the sequence for IRs of length 4, 5, or 6 nucleotides.
+Allows a spacer region between the left and right arms (up to 500 bp).
+Identifies IR pairs where:
+Right_arm = reverse complement(Left_arm)
+Records for each IR:
+IR length
+IR sequence
+Left arm start and end positions
+Right arm start and end positions
+Spacer length between arms
+Output Format
+For each genome, results were saved to:
+<filename>_inverted_repeats.txt
+Each line contains a single IR pair and its coordinates.
+
+Results:
+Genome 1
+
+Number of inverted repeats detected: 12677
+IRs were distributed evenly across the genome.
+The majority were 4 bp repeats, which is expected due to random sequence occurrence.
+No significant clustering of IRs was observed.
+
+Genome 2
+
+Number of inverted repeats detected: 14322
+Short IRs were frequent, while 6 bp IRs were uncommon.
+Several IR pairs were separated by hundreds to thousands of base pairs, suggesting possible transposon boundaries.
+
+Genome 3
+
+Number of inverted repeats detected: 23864
+This genome showed clusters of repeated 5 bp IRs, which may represent insertion hotspots.
+Certain IR motifs appeared multiple times in close proximity, consistent with possible mobile genetic elements.
